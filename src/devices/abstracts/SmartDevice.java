@@ -1,4 +1,4 @@
-package composit.devices.abstracts;
+package devices.abstracts;
 
 public abstract class SmartDevice {
     public abstract void turnOn();
