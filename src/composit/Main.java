@@ -1,26 +1,21 @@
 package composit;
 
-import composit.devices.Light;
-import composit.devices.Room;
-import composit.devices.Thermostat;
+import composit.devices.DeviceGroup;
+import composit.devices.SingleDevice;
 
 public class Main {
     public static void main(String[] args) {
-        Light livingRoomLight = new Light("Living Room Light");
-        Light kitchenLight = new Light("Kitchen Light");
-        Thermostat thermostat = new Thermostat();
+        SingleDevice light1 = new SingleDevice("Лампа в гостиной");
+        SingleDevice thermostat = new SingleDevice("Термостат");
 
-        Room livingRoom = new Room("Living Room");
-        livingRoom.addDevice(livingRoomLight);
+        DeviceGroup livingRoom = new DeviceGroup("Гостиная");
+        livingRoom.addDevice(light1);
         livingRoom.addDevice(thermostat);
 
-        Room kitchen = new Room("Kitchen");
-        kitchen.addDevice(kitchenLight);
-
         livingRoom.turnOn();
-        livingRoom.turnOff();
+        System.out.println(livingRoom.getStatus());
 
-        kitchen.turnOn();
-        kitchen.turnOff();
+        livingRoom.turnOff();
+        System.out.println(livingRoom.getStatus());
     }
 }
